@@ -1,220 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Download NELOA</title>
-  <meta
-    name="description"
-    content="Official NELOA Android app download page."
-  />
+  <meta name="description" content="Official NELOA Android app download page.">
 
   <style>
     * {
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      color: #ffffff;
-      background:
-        radial-gradient(circle at 15% 10%, rgba(130, 45, 255, 0.35), transparent 35%),
-        radial-gradient(circle at 85% 15%, rgba(255, 55, 180, 0.30), transparent 35%),
-        linear-gradient(180deg, #090718 0%, #100b25 48%, #080711 100%);
+      color: white;
       min-height: 100vh;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(80, 50, 255, 0.45), transparent 35%),
+        radial-gradient(circle at 85% 10%, rgba(255, 50, 190, 0.38), transparent 35%),
+        linear-gradient(180deg, #080617, #100923 55%, #07060d);
     }
 
-    .page {
-      width: min(1180px, calc(100% - 28px));
-      margin: 0 auto;
+    .container {
+      width: min(1150px, calc(100% - 24px));
+      margin: auto;
       padding: 22px 0 40px;
     }
 
     .topbar {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 16px;
-      padding: 10px 0 24px;
+      align-items: center;
+      margin-bottom: 22px;
     }
 
     .brand {
       display: flex;
       align-items: center;
       gap: 12px;
-      text-decoration: none;
       color: white;
+      text-decoration: none;
     }
 
     .brand img {
-      width: 52px;
-      height: 52px;
-      border-radius: 15px;
+      width: 58px;
+      height: 58px;
+      border-radius: 17px;
       object-fit: cover;
-      box-shadow: 0 0 28px rgba(122, 87, 255, 0.42);
+      box-shadow: 0 0 28px rgba(135, 70, 255, 0.5);
     }
 
     .brand-name {
-      font-size: 22px;
+      font-size: 24px;
       font-weight: 800;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
     }
 
-    .official-badge {
-      font-size: 12px;
-      padding: 8px 12px;
+    .official {
+      padding: 8px 13px;
       border-radius: 999px;
+      font-size: 12px;
       background: rgba(255,255,255,0.08);
       border: 1px solid rgba(255,255,255,0.12);
-      color: #d8d4e7;
     }
 
     .hero {
-      position: relative;
       overflow: hidden;
+      padding: 18px;
       border-radius: 28px;
-      padding: 28px;
-      background:
-        linear-gradient(135deg, rgba(87, 40, 210, 0.34), rgba(234, 47, 183, 0.18));
-      border: 1px solid rgba(255,255,255,0.11);
-      box-shadow: 0 25px 70px rgba(0,0,0,0.32);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 25px 70px rgba(0,0,0,0.35);
     }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 15% 15%, rgba(66, 138, 255, 0.25), transparent 28%),
-        radial-gradient(circle at 85% 20%, rgba(255, 62, 184, 0.24), transparent 26%);
-      pointer-events: none;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-banner {
+    .banner {
       width: 100%;
       display: block;
-      border-radius: 22px;
-      border: 1px solid rgba(255,255,255,0.10);
-      box-shadow: 0 18px 55px rgba(0,0,0,0.30);
+      border-radius: 21px;
+      box-shadow: 0 18px 55px rgba(0,0,0,0.35);
     }
 
-    .hero-copy {
-      max-width: 760px;
-      margin: 28px auto 0;
+    .intro {
       text-align: center;
+      max-width: 760px;
+      margin: 32px auto 0;
     }
 
-    .hero-copy h1 {
+    .intro h1 {
+      font-size: clamp(38px, 7vw, 68px);
       margin: 0;
-      font-size: clamp(34px, 7vw, 64px);
       line-height: 1;
-      letter-spacing: -1px;
     }
 
-    .hero-copy p {
-      margin: 16px auto 0;
-      color: #d7d2e5;
-      font-size: 16px;
+    .intro p {
+      margin: 18px auto;
+      color: #d2ccdf;
       line-height: 1.7;
-      max-width: 660px;
+      font-size: 16px;
+      max-width: 680px;
     }
 
     .tagline {
       display: inline-block;
-      margin-top: 18px;
-      padding: 9px 15px;
+      padding: 10px 18px;
       border-radius: 999px;
-      background: linear-gradient(90deg, rgba(47,111,255,0.30), rgba(247,61,177,0.30));
-      border: 1px solid rgba(255,255,255,0.11);
-      font-size: 14px;
+      background: linear-gradient(
+        90deg,
+        rgba(48,100,255,.32),
+        rgba(255,55,178,.32)
+      );
       font-weight: 700;
     }
 
     .download-card {
-      margin: 28px auto 0;
       max-width: 760px;
-      padding: 26px;
+      margin: 30px auto 0;
+      padding: 25px;
       border-radius: 22px;
       background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.10);
-      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.1);
     }
 
-    .download-head {
+    .app-head {
       display: flex;
       align-items: center;
       gap: 16px;
-      margin-bottom: 18px;
     }
 
-    .download-head img {
-      width: 72px;
-      height: 72px;
+    .app-head img {
+      width: 78px;
+      height: 78px;
+      border-radius: 21px;
       object-fit: cover;
-      border-radius: 20px;
-      box-shadow: 0 0 25px rgba(115, 89, 255, 0.30);
+      box-shadow: 0 0 28px rgba(126,80,255,0.35);
     }
 
-    .download-title {
-      font-size: 24px;
+    .app-title {
+      font-size: 25px;
       font-weight: 800;
     }
 
-    .download-sub {
+    .app-subtitle {
       margin-top: 5px;
-      color: #bfb9cf;
+      color: #aaa4b7;
       font-size: 14px;
     }
 
     .status {
-      margin-top: 18px;
-      padding: 15px 16px;
+      margin-top: 20px;
+      padding: 16px;
       border-radius: 14px;
       background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.09);
-      color: #dad6e4;
+      border: 1px solid rgba(255,255,255,0.08);
       line-height: 1.55;
+      color: #ddd8e6;
     }
 
     .download-button {
       display: block;
       margin-top: 18px;
-      width: 100%;
+      padding: 17px;
       text-align: center;
-      padding: 16px 20px;
       border-radius: 14px;
-      background: linear-gradient(90deg, #625cff, #d147d5);
+      background: linear-gradient(90deg,#5d5cff,#db44ca);
       color: white;
-      text-decoration: none;
       font-size: 17px;
       font-weight: 800;
-      box-shadow: 0 12px 30px rgba(126, 83, 255, 0.22);
-      opacity: 0.58;
+      opacity: .60;
       cursor: not-allowed;
     }
 
-    .security-note {
-      margin-top: 12px;
-      color: #9f99ae;
-      font-size: 13px;
+    .security {
+      margin-top: 13px;
       text-align: center;
-      line-height: 1.5;
+      font-size: 13px;
+      color: #9993a5;
+      line-height: 1.6;
     }
 
     .features {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3,1fr);
       gap: 14px;
       margin-top: 28px;
     }
@@ -222,83 +190,61 @@
     .feature {
       padding: 20px;
       border-radius: 18px;
-      background: rgba(255,255,255,0.055);
+      background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.08);
     }
 
-    .feature-title {
-      font-size: 16px;
-      font-weight: 800;
-      margin-bottom: 8px;
+    .feature h3 {
+      margin: 0 0 9px;
+      font-size: 17px;
     }
 
-    .feature-text {
-      color: #aaa5b7;
-      font-size: 13px;
+    .feature p {
+      margin: 0;
+      color: #aaa5b5;
       line-height: 1.55;
-    }
-
-    .footer {
-      margin-top: 34px;
-      text-align: center;
-      color: #817c8c;
       font-size: 13px;
-      line-height: 1.9;
     }
 
-    .footer a {
-      color: #cbbcff;
+    footer {
+      text-align: center;
+      padding-top: 35px;
+      color: #817b8b;
+      line-height: 2;
+      font-size: 13px;
+    }
+
+    footer a {
+      color: #c8b6ff;
       text-decoration: none;
       margin: 0 7px;
     }
 
-    .footer a:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 720px) {
-      .page {
-        width: min(100% - 18px, 1180px);
-        padding-top: 12px;
-      }
-
-      .topbar {
-        padding-bottom: 16px;
-      }
-
-      .official-badge {
-        display: none;
+    @media(max-width:700px) {
+      .official {
+        display:none;
       }
 
       .hero {
-        padding: 14px;
-        border-radius: 22px;
+        padding:10px;
+        border-radius:20px;
       }
 
-      .hero-banner {
-        border-radius: 16px;
-      }
-
-      .hero-copy {
-        margin-top: 22px;
-        padding: 0 6px;
+      .banner {
+        border-radius:15px;
       }
 
       .download-card {
-        padding: 18px;
-      }
-
-      .download-head {
-        align-items: flex-start;
-      }
-
-      .download-head img {
-        width: 64px;
-        height: 64px;
+        padding:18px;
       }
 
       .features {
-        grid-template-columns: 1fr;
+        grid-template-columns:1fr;
+      }
+
+      .brand img {
+        width:50px;
+        height:50px;
       }
     }
   </style>
@@ -306,113 +252,133 @@
 
 <body>
 
-  <div class="page">
+<div class="container">
 
-    <header class="topbar">
-      <a class="brand" href="/">
-        <img src="/download/neloa-logo.png" alt="NELOA logo" />
-        <span class="brand-name">NELOA</span>
-      </a>
+  <header class="topbar">
 
-      <div class="official-badge">
-        Official Android Download
+    <a class="brand" href="/">
+      <img
+        src="photo_2026-09-01_13-04-46.jpg"
+        alt="NELOA logo">
+
+      <span class="brand-name">NELOA</span>
+    </a>
+
+    <div class="official">
+      Official Android Download
+    </div>
+
+  </header>
+
+  <section class="hero">
+
+    <img
+      class="banner"
+      src="photo_2026-09-01_13-11-34.jpg"
+      alt="NELOA app preview">
+
+    <div class="intro">
+
+      <h1>Meet. Talk. Connect.</h1>
+
+      <p>
+        Discover new people, join live audio rooms,
+        enjoy Talk5 conversations, chat privately,
+        send gifts, play games and share moments
+        with the NELOA community.
+      </p>
+
+      <div class="tagline">
+        Connect • Talk • Share
       </div>
-    </header>
 
-    <section class="hero">
-      <div class="hero-content">
+    </div>
+
+    <div class="download-card">
+
+      <div class="app-head">
 
         <img
-          class="hero-banner"
-          src="/download/neloa-banner.png"
-          alt="NELOA app preview"
-        />
+          src="photo_2026-09-01_13-04-46.jpg"
+          alt="NELOA app icon">
 
-        <div class="hero-copy">
-          <h1>Meet. Talk. Connect.</h1>
+        <div>
+          <div class="app-title">
+            NELOA for Android
+          </div>
 
-          <p>
-            Discover new people, join live audio rooms, enjoy Talk5 conversations,
-            chat privately, send gifts, play games and share moments with the NELOA community.
-          </p>
-
-          <div class="tagline">
-            Connect • Talk • Share
+          <div class="app-subtitle">
+            Official NELOA Android application
           </div>
         </div>
 
-        <div class="download-card">
-
-          <div class="download-head">
-            <img src="/download/neloa-logo.png" alt="NELOA app icon" />
-
-            <div>
-              <div class="download-title">NELOA for Android</div>
-              <div class="download-sub">
-                Official NELOA APK download
-              </div>
-            </div>
-          </div>
-
-          <div class="status">
-            <strong>APK coming soon</strong><br>
-            The latest official Android build is being prepared.
-            The download button will be activated here once the final APK is published.
-          </div>
-
-          <span class="download-button">
-            Download NELOA APK — Coming Soon
-          </span>
-
-          <div class="security-note">
-            For your security, install NELOA only from an official NELOA download source.
-          </div>
-
-        </div>
-
-        <div class="features">
-
-          <div class="feature">
-            <div class="feature-title">🎙 Live Audio</div>
-            <div class="feature-text">
-              Join conversations, listen, speak and meet new people in live audio rooms.
-            </div>
-          </div>
-
-          <div class="feature">
-            <div class="feature-title">🎧 Talk5</div>
-            <div class="feature-text">
-              Enjoy focused five-minute conversations and discover new connections.
-            </div>
-          </div>
-
-          <div class="feature">
-            <div class="feature-title">💬 Chat & Connect</div>
-            <div class="feature-text">
-              Keep conversations going with private chat, stories, gifts and community features.
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <footer class="footer">
-      <div>
-        <a href="/">Home</a>
-        <a href="/privacy-policy.html">Privacy Policy</a>
-        <a href="/terms.html">Terms of Use</a>
-        <a href="/community-guidelines.html">Community Guidelines</a>
-        <a href="/account-deletion.html">Delete Account</a>
       </div>
 
-      <div>
-        Official NELOA website • neloa.in
+      <div class="status">
+        <strong>Official APK coming soon</strong><br>
+        The latest NELOA Android build is being prepared.
+        The download button will become available here
+        when the final APK is published.
       </div>
-    </footer>
 
-  </div>
+      <div class="download-button">
+        Download NELOA APK — Coming Soon
+      </div>
+
+      <div class="security">
+        For your security, install NELOA only from
+        an official NELOA download source.
+      </div>
+
+    </div>
+
+    <div class="features">
+
+      <div class="feature">
+        <h3>🎙️ Live Audio Rooms</h3>
+        <p>
+          Talk, listen and meet new people through
+          NELOA live audio conversations.
+        </p>
+      </div>
+
+      <div class="feature">
+        <h3>🎧 Talk5</h3>
+        <p>
+          Discover new connections through focused
+          five-minute conversations.
+        </p>
+      </div>
+
+      <div class="feature">
+        <h3>💬 Chat & Connect</h3>
+        <p>
+          Chat privately, share moments, send gifts
+          and stay connected with the community.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer>
+
+    <div>
+      <a href="/">Home</a>
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Use</a>
+      <a href="/community-guidelines.html">Community Guidelines</a>
+      <a href="/account-deletion.html">Delete Account</a>
+    </div>
+
+    <div>
+      Official NELOA Website • neloa.in
+    </div>
+
+  </footer>
+
+</div>
 
 </body>
 </html>
