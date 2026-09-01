@@ -168,8 +168,14 @@
       color: white;
       font-size: 17px;
       font-weight: 800;
-      opacity: .60;
-      cursor: not-allowed;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform .2s ease, opacity .2s ease;
+    }
+
+    .download-button:hover {
+      transform: translateY(-2px);
+      opacity: .92;
     }
 
     .security {
@@ -315,15 +321,16 @@
       </div>
 
       <div class="status">
-        <strong>Official APK coming soon</strong><br>
-        The latest NELOA Android build is being prepared.
-        The download button will become available here
-        when the final APK is published.
+        <strong>NELOA Android APK is available</strong><br>
+        Download the official NELOA Android application
+        directly from this page.
       </div>
 
-      <div class="download-button">
-        Download NELOA APK — Coming Soon
-      </div>
+      <a
+        class="download-button"
+        href="https://github.com/neloa-official/neloa-legal/releases/download/v2.14.25/app-release.apk">
+        Download NELOA APK
+      </a>
 
       <div class="security">
         For your security, install NELOA only from
@@ -369,6 +376,7 @@
       <a href="/privacy-policy.html">Privacy Policy</a>
       <a href="/terms.html">Terms of Use</a>
       <a href="/community-guidelines.html">Community Guidelines</a>
+      <a href="/child-safety.html">Child Safety Standards</a>
       <a href="/account-deletion.html">Delete Account</a>
     </div>
 
