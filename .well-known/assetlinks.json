@@ -1,0 +1,11 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.neloa.app",
+      "sha256_cert_fingerprints":
+        ["C5:62:EC:F4:23:5D:B5:AC:ED:E2:4D:02:8D:AE:6A:8F:87:C9:D7:F0:F5:BB:4C:5D:66:3E:73:97:12:20:51:E8"]
+    }
+  }
+]
