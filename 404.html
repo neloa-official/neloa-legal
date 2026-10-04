@@ -1,0 +1,7 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Open in NELOA</title><style>body{font-family:system-ui,sans-serif;margin:0;min-height:100vh;display:grid;place-items:center;background:#fff9ff;color:#211b2d}.c{text-align:center;padding:28px}a{display:inline-block;margin-top:14px;padding:12px 20px;border-radius:24px;background:#7a45ee;color:white;text-decoration:none;font-weight:700}</style></head>
+<body><div class="c"><h1>NELOA</h1><p id="m">Opening this link in NELOA…</p><a id="open" href="#">Open in NELOA</a></div>
+<script>
+(function(){var p=location.pathname.replace(/^\/+/,"");var deep="neloa://"+p+location.search+location.hash;document.getElementById("open").href=deep;location.href=deep;setTimeout(function(){document.getElementById("m").textContent="Open the NELOA app to continue."},1200);})();
+</script></body></html>
