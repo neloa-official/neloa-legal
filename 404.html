@@ -1,7 +1,43 @@
 <!doctype html>
-<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Open in NELOA</title><style>body{font-family:system-ui,sans-serif;margin:0;min-height:100vh;display:grid;place-items:center;background:#fff9ff;color:#211b2d}.c{text-align:center;padding:28px}a{display:inline-block;margin-top:14px;padding:12px 20px;border-radius:24px;background:#7a45ee;color:white;text-decoration:none;font-weight:700}</style></head>
-<body><div class="c"><h1>NELOA</h1><p id="m">Opening this link in NELOA…</p><a id="open" href="#">Open in NELOA</a></div>
-<script>
-(function(){var p=location.pathname.replace(/^\/+/,"");var deep="neloa://"+p+location.search+location.hash;document.getElementById("open").href=deep;location.href=deep;setTimeout(function(){document.getElementById("m").textContent="Open the NELOA app to continue."},1200);})();
-</script></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101426">
+  <title>Get NELOA</title>
+  <style>
+    :root { color-scheme: dark; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 24px; background: #090c18; color: #f5f3ff; }
+    main { width: min(100%, 440px); padding: 30px 24px; border: 1px solid #343653; border-radius: 24px; background: #11162a; text-align: center; }
+    .mark { display: grid; place-items: center; width: 64px; height: 64px; margin: 0 auto 18px; border-radius: 20px; background: linear-gradient(135deg, #7048f5, #d23fa7); font-size: 30px; font-weight: 800; }
+    h1 { margin: 0 0 10px; font-size: 25px; }
+    p { margin: 0 0 18px; color: #c0bfd1; line-height: 1.55; }
+    a { display: inline-block; margin-top: 6px; padding: 14px 22px; border-radius: 14px; color: #fff; font-weight: 700; text-decoration: none; background: linear-gradient(100deg, #7048f5, #d23fa7); }
+    .hint { margin: 18px 0 0; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="mark" aria-hidden="true">N</div>
+    <h1>Get NELOA</h1>
+    <p id="status">Opening Google Play to download NELOA…</p>
+    <a id="store-link" href="https://play.google.com/store/apps/details?id=com.neloa.app">Continue to Google Play</a>
+    <p class="hint">After installing, return to the original shared link and tap it again to open that room, profile, post, or other shared page.</p>
+  </main>
+  <script>
+    (function () {
+      var storeUrl = "https://play.google.com/store/apps/details?id=com.neloa.app";
+      document.getElementById("store-link").href = storeUrl;
+
+      // Verified Android App Links open NELOA directly before this 404 page is shown.
+      // This page is the fallback for links that reach the website without the app.
+      if (/Android/i.test(navigator.userAgent)) {
+        window.location.replace(storeUrl);
+      } else {
+        document.getElementById("status").textContent = "Install NELOA from Google Play on your Android phone, then tap the original shared link again.";
+      }
+    }());
+  </script>
+</body>
+</html>
